@@ -33,3 +33,25 @@ const creatProjectForm = () => {
     createProject();
   });
 };
+
+const createTodo = () => {
+  const todoButton = document.querySelector('#addTodoBtn');
+  todoButton.addEventListener('click', (e) => {
+    const project = document.querySelector('#todo-project-input').value;
+    const title = document.querySelector('#todo-title-input').value;
+    const description = document.querySelector('#todo-description-input').value;
+    const dueDate = document.querySelector('#todo-date-input').value;
+    const priority = document.querySelector('#todo-priority-input').value;
+    const status = document.querySelector('#todo-status-input').value;
+    if (title.length > 5 && description.length > 5 && dueDate.length > 5) {
+      const todoObj = todo(title, description, dueDate, priority, project, status);
+      TodoSaved.addTodo(todoObj);
+      Mixing.closeTodoForm();
+    } else {
+      alert('Todo can\'t be less than 5 leters');
+    }
+    localStorage.setItem('todoItems', JSON.stringify(TodoSaved.todo_array));
+    DomManipulations.displayTodoList();
+    e.preventDefault();
+  });
+};
