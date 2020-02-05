@@ -1,3 +1,8 @@
+import ProjectModule from './ProjectModule'
+import TodoSaved from './TodoSaved'
+import Mixing from './Mixing'
+import todo from './todoFactory'
+
 const domManipulations = (() => {
   const projects = ProjectModule.returnAllProjects()
   const currentProject = 0
@@ -81,4 +86,51 @@ const domManipulations = (() => {
       alert('to do must be greater than 5 letters')
     }
   }
+
+  window.retrievedEditedInfo = (index) => {
+    Mixing.openToDoForm()
+
+    document.querySelector('#todo-title-input').value = TodoSaved.todo_array[index].title
+    document.querySelector('#todo-description-input').value = TodoSaved.todo_array[index].description
+    document.querySelector('#todo-date-input').value = TodoSaved.todo_array[index].dueDate
+    document.querySelector('#todo-project-input').value = TodoSaved.todo_array[index].projectName
+
+    const { priority } = TodoSaved.todo_array[index]
+    const prioritySelectInput = document.querySelector('#todo-priority-input')
+    if (priority === 'High Priority') {
+      prioritySelectInput.options[0] = new Option('High Priority', 'High Priority')
+      prioritySelectInput.options[1] = new Option('Low Priority', 'Low Priority')
+    } else {
+      prioritySelectInput.options[0] = new Option('Low Priority', 'Low Priority')
+      prioritySelectInput.options[1] = new Option('High Priority', 'High Priority')
+    }
+
+    const { status } = TodoSaved.todo_array[index]
+    const statusSelect = document.querySelector('#todo-status-input')
+    if (status === 'COMPLETE') {
+      statusSelect.options[0] = new Option('Done', 'Done')
+      statusSelect.options[1] = new Option('Undone', 'Undone')
+    } else {
+      statusSelect.options[0] = new Option('Undone', 'Undone')
+      statusSelect.options[1] = new Option('Done', 'Done')
+    }
+
+    const addTodoButton = document.querySelector('#addTodoBtn')
+    addTodoButton.addEventListener('click', (e) => {
+      DomManipulations.collectTodoEditedInfo(index)
+      e.preventDefault()
+    })
+  }
+
+  return {
+    store,
+    projects,
+    showProjectList,
+    clickOnProject,
+    currentProject,
+    displayTodoList,
+    collectTodoEditedInfo
+  }
 })()
+
+export default DomManipulations
