@@ -1,4 +1,14 @@
 const Forms = (() => {
+
+  const project = `
+    <div id="project-form-div" class="mx-auto">
+      <form id="project-form">
+        <input id="projectInputField" type="text" name="projectName" placeholder="Project Name" placeholder="Add project" required>
+        <button id="addProjectBtn"><i class="fas fa-plus-square"></i></button>
+      </form>
+    </div>
+  `;
+
   const todo = `
     <form id="todo-form">
       <fieldset class="form-group">
@@ -26,6 +36,6 @@ const Forms = (() => {
        </fieldset>
     </form>
   `;
-  
-  return {todo, project}
+
+  return { todo, project }
 })() 
