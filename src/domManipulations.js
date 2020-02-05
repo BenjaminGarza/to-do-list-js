@@ -15,4 +15,10 @@ const domManipulations = (() => {
     const firstProjectOneList = document.querySelector('#projectListDiv > div:nth-child(1)');
     firstProjectOneList.classList.add('currently_select_project');
   };
+
+  window.deletTodoItem = (index) => {
+    TodoSaved.removeTodo(index);
+    localStorage.setItem('todoItems', JSON.stringify(TodoSaved.todo_array));
+    DomManipulations.displayTodoList();
+  };
 })()
