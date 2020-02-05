@@ -111,26 +111,27 @@ const ProjectModule = (() => {
   return store;
 })();
 /* harmony default export */ var src_ProjectModule = (ProjectModule);
+
 // CONCATENATED MODULE: ./src/TodoSaved.js
 
 const TodoSaved = (() => {
-  const store = {}
+  const store = {};
   store.todo_array = localStorage.getItem('todoItems')
-    ? JSON.parse(localStorage.getItem('todoItems')) : []
+    ? JSON.parse(localStorage.getItem('todoItems')) : [];
   store.addTodo = (newTodo) => {
-    TodoSaved.todo_array.push(newTodo)
-    localStorage.setItem('todoItems', JSON.stringify(TodoSaved.todo_array))
-  }
+    TodoSaved.todo_array.push(newTodo);
+    localStorage.setItem('todoItems', JSON.stringify(TodoSaved.todo_array));
+  };
   store.updateTodo = (editedTodo, index) => {
-    TodoSaved.todo_array[index] = editedTodo
-    localStorage.setItem('todoItems', JSON.stringify(TodoSaved.todo_array))
-  }
+    TodoSaved.todo_array[index] = editedTodo;
+    localStorage.setItem('todoItems', JSON.stringify(TodoSaved.todo_array));
+  };
   store.removeTodo = (todoItemIndex) => {
-    TodoSaved.todo_array.splice(todoItemIndex, 1)
-  }
+    TodoSaved.todo_array.splice(todoItemIndex, 1);
+  };
 
-  return store
-})()
+  return store;
+})();
 
 /* harmony default export */ var src_TodoSaved = (TodoSaved);
 
@@ -143,7 +144,7 @@ const Forms = (() => {
         <button id="addProjectBtn"><i class="fas fa-plus-square"></i></button>
       </form>
     </div>
-  `
+  `;
 
   const todo = `
     <form id="todo-form">
@@ -171,10 +172,10 @@ const Forms = (() => {
           <button id="addTodoBtn">SUBMIT</button>
        </fieldset>
     </form>
-  `
+  `;
 
-  return { project, todo }
-})()
+  return { project, todo };
+})();
 
 /* harmony default export */ var src_Forms = (Forms);
 
@@ -195,7 +196,6 @@ const Mixing = (() => {
   const openProjectForm = () => {
     const header = document.querySelector('#headerDiv')
     header.innerHTML = src_Forms.project
-    console.log(header)
   }
 
   const closeProjectForm = () => {
@@ -203,8 +203,58 @@ const Mixing = (() => {
     header.innerHTML = ''
   }
 
+  const todoValidationMessage = () => {
+    const validationDiv = document.querySelector('#validation-info')
+    validationDiv.innerHTML = 'title and description must be greater than 6 letters'
+  }
+
+  const todoValidationExit = () => {
+    const validationDiv = document.querySelector('#validation-info')
+    validationDiv.innerHTML = ''
+  }
+
+  const projectValidationMessage = () => {
+    const validationDiv = document.querySelector('#validation-info')
+    validationDiv.innerHTML = 'Project already exist'
+  }
+  const projectValidationExit = () => {
+    const validationDiv = document.querySelector('#validation-info')
+    validationDiv.innerHTML = ''
+  }
+
+  const editTodoValidation = () => {
+    const validationDiv = document.querySelector('#validation-info')
+    validationDiv.innerHTML = 'to do must be greater than 5 letters'
+  }
+
+  const editTodoExitValidation = () => {
+    const validationDiv = document.querySelector('#validation-info')
+    validationDiv.innerHTML = ''
+  }
+
+  const deletProjectValidation = () => {
+    const validationDiv = document.querySelector('#validation-info')
+    validationDiv.innerHTML = 'Cannot delete default project'
+  }
+
+  const deletProjectExitValidation = () => {
+    const validationDiv = document.querySelector('#validation-info')
+    validationDiv.innerHTML = ''
+  }
+
   return {
-    openToDoForm, closeTodoForm, openProjectForm, closeProjectForm
+    openToDoForm,
+    closeTodoForm,
+    openProjectForm,
+    closeProjectForm,
+    todoValidationMessage,
+    projectValidationMessage,
+    projectValidationExit,
+    todoValidationExit,
+    editTodoValidation,
+    editTodoExitValidation,
+    deletProjectValidation,
+    deletProjectExitValidation
   }
 })()
 
@@ -220,6 +270,7 @@ const todo = (title, description, dueDate, priority = 'NOT IMPORTANT', projectNa
   status,
 });
 /* harmony default export */ var todoFactory = (todo);
+
 // CONCATENATED MODULE: ./src/DomManipulations.js
 
 
@@ -255,7 +306,11 @@ const DomManipulations = (() => {
     let content = ''
     src_TodoSaved.todo_array.forEach((todoItem, index) => {
       const {
-        title, description, dueDate, priority, status
+        title,
+        description,
+        dueDate,
+        priority,
+        status
       } = todoItem
       if (projects[DomManipulations.currentProject] === todoItem.projectName) {
         content += `<tr>
@@ -288,6 +343,7 @@ const DomManipulations = (() => {
         projectItemTitle.innerHTML = projects[DomManipulations.currentProject]
         DomManipulations.displayTodoList()
         src_Mixing.closeTodoForm()
+        src_Mixing.deletProjectExitValidation()
         e.preventDefault()
       })
     })
@@ -305,8 +361,9 @@ const DomManipulations = (() => {
       const editedTodo = todoFactory(title, description, dueDate, priority, project, status)
       src_TodoSaved.updateTodo(editedTodo, index)
       DomManipulations.displayTodoList()
+      src_Mixing.editTodoExitValidation()
     } else {
-      alert('to do must be greater than 5 letters')
+      src_Mixing.editTodoValidation()
     }
   }
 
@@ -377,8 +434,9 @@ const createProject = () => {
       if (!src_projects.includes(projectName)) {
         src_ProjectModule.addProject(projectName)
         projectInputField.value = ''
+        src_Mixing.projectValidationExit()
       } else {
-        alert('Project Already exists !!')
+        src_Mixing.projectValidationMessage()
       }
     }
     src_Mixing.closeTodoForm()
@@ -389,7 +447,7 @@ const createProject = () => {
 
 const creatProjectForm = () => {
   const projectbtn = document.querySelector('#project-button')
-  console.log(projectbtn)
+
   projectbtn.addEventListener('click', () => {
     src_Mixing.openProjectForm()
     createProject()
@@ -409,8 +467,9 @@ const createTodo = () => {
       const todoObj = todoFactory(title, description, dueDate, priority, project, status)
       src_TodoSaved.addTodo(todoObj)
       src_Mixing.closeTodoForm()
+      src_Mixing.todoValidationExit()
     } else {
-      alert('Todo can\'t be less than 5 leters')
+      src_Mixing.todoValidationMessage()
     }
     localStorage.setItem('todoItems', JSON.stringify(src_TodoSaved.todo_array))
     src_DomManipulations.displayTodoList()
@@ -422,7 +481,7 @@ const deleteProjectItem = () => {
   const deleteProjectButton = document.querySelector('#delete-project-button')
   deleteProjectButton.addEventListener('click', () => {
     if (src_projects[src_DomManipulations.currentProject] === 'DEFAULT PROJECT') {
-      alert('Cannot delete default project')
+      src_Mixing.deletProjectValidation()
     } else {
       if (src_TodoSaved.todo_array.length !== 0) {
         const arrToDelete = []

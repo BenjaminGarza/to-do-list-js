@@ -69,6 +69,7 @@ const DomManipulations = (() => {
         projectItemTitle.innerHTML = projects[DomManipulations.currentProject];
         DomManipulations.displayTodoList();
         Mixing.closeTodoForm();
+        Mixing.deletProjectExitValidation();
         e.preventDefault();
       });
     });
@@ -86,8 +87,9 @@ const DomManipulations = (() => {
       const editedTodo = todo(title, description, dueDate, priority, project, status);
       TodoSaved.updateTodo(editedTodo, index);
       DomManipulations.displayTodoList();
+      Mixing.editTodoExitValidation();
     } else {
-      alert('to do must be greater than 5 letters');
+      Mixing.editTodoValidation();
     }
   };
 

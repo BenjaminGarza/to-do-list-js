@@ -16,8 +16,9 @@ const createProject = () => {
       if (!projects.includes(projectName)) {
         ProjectModule.addProject(projectName);
         projectInputField.value = '';
+        Mixing.projectValidationExit();
       } else {
-        alert('Project Already exists !!');
+        Mixing.projectValidationMessage();
       }
     }
     Mixing.closeTodoForm();
@@ -48,8 +49,9 @@ const createTodo = () => {
       const todoObj = todo(title, description, dueDate, priority, project, status);
       TodoSaved.addTodo(todoObj);
       Mixing.closeTodoForm();
+      Mixing.todoValidationExit();
     } else {
-      alert('Todo can\'t be less than 5 letters');
+      Mixing.todoValidationMessage();
     }
     localStorage.setItem('todoItems', JSON.stringify(TodoSaved.todo_array));
     DomManipulations.displayTodoList();
@@ -61,7 +63,7 @@ const deleteProjectItem = () => {
   const deleteProjectButton = document.querySelector('#delete-project-button');
   deleteProjectButton.addEventListener('click', () => {
     if (projects[DomManipulations.currentProject] === 'DEFAULT PROJECT') {
-      alert('Cannot delete default project');
+      Mixing.deletProjectValidation();
     } else {
       if (TodoSaved.todo_array.length !== 0) {
         const arrToDelete = [];
