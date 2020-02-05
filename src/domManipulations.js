@@ -64,4 +64,21 @@ const domManipulations = (() => {
       })
     })
   }
+
+  const collectTodoEditedInfo = (index) => {
+    const project = document.querySelector('#todo-project-input').value
+    const title = document.querySelector('#todo-title-input').value
+    const description = document.querySelector('#todo-description-input').value
+    const dueDate = document.querySelector('#todo-date-input').value
+    const priority = document.querySelector('#todo-priority-input').value
+    const status = document.querySelector('#todo-status-input').value
+
+    if (title.length > 5 && description.length > 5 && dueDate.length > 5) {
+      const editedTodo = todo(title, description, dueDate, priority, project, status)
+      TodoSaved.updateTodo(editedTodo, index)
+      DomManipulations.displayTodoList()
+    } else {
+      alert('to do must be greater than 5 letters')
+    }
+  }
 })()
