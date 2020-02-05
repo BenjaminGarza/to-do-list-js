@@ -1,29 +1,30 @@
-import Forms from './Forms'
+import Forms from './Forms';
 
 const Mixing = (() => {
   const openToDoForm = () => {
-    const todoFormDiv = document.querySelector('#todo-form-div')
-    todoFormDiv.innerHTML = Forms.todo
-  }
+    const todoFormDiv = document.querySelector('#todo-form-div');
+    todoFormDiv.innerHTML = Forms.todo;
+  };
 
   const closeTodoForm = () => {
-    const todoFormDiv = document.querySelector('#todo-form-div')
-    todoFormDiv.innerHTML = ''
-  }
+    const todoFormDiv = document.querySelector('#todo-form-div');
+    todoFormDiv.innerHTML = '';
+  };
 
   const openProjectForm = () => {
-    const header = document.querySelector('#headerDiv')
-    header.innerHTML = Forms.project
-  }
+    const header = document.querySelector('#headerDiv');
+    header.innerHTML = Forms.project;
+    console.log(header);
+  };
 
   const closeProjectForm = () => {
-    const header = document.querySelector('#headerDiv')
-    header.innerHTML = ''
-  }
+    const header = document.querySelector('#headerDiv');
+    header.innerHTML = '';
+  };
 
   return {
     openToDoForm, closeTodoForm, openProjectForm, closeProjectForm
-  }
-})()
+  };
+})();
 
-export default Mixing
+export default Mixing;

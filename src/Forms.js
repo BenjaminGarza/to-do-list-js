@@ -1,5 +1,4 @@
 const Forms = (() => {
-
   const project = `
     <div id="project-form-div" class="mx-auto">
       <form id="project-form">
@@ -37,5 +36,7 @@ const Forms = (() => {
     </form>
   `;
 
-  return { todo, project }
-})() 
+  return { project, todo };
+})();
+
+export default Forms;
