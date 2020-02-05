@@ -55,3 +55,25 @@ const createTodo = () => {
     e.preventDefault();
   });
 };
+
+const deleteProjectItem = () => {
+  const deleteProjectButton = document.querySelector('#delete-project-button');
+  deleteProjectButton.addEventListener('click', () => {
+    if (projects[DomManipulations.currentProject] === 'DEFAULT PROJECT') {
+      alert('Cannot delete default project');
+    } else {
+      if (TodoSaved.todo_array.length !== 0) {
+        const arrToDelete = [];
+        TodoSaved.todo_array.forEach((toDoItem) => {
+          if (projects[DomManipulations.currentProject] === toDoItem.projectName) {
+            arrToDelete.push(toDoItem);
+          }
+        });
+        TodoSaved.todo_array = TodoSaved.todo_array.filter((n) => !arrToDelete.includes(n));
+        localStorage.setItem('todoItems', JSON.stringify(TodoSaved.todo_array));
+      }
+      ProjectModule.removeProject(projects[DomManipulations.currentProject]);
+    }
+    document.location.reload();
+  });
+};
