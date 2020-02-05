@@ -11,6 +11,16 @@ const Mixing = (() => {
     todoFormDiv.innerHTML = ''
   }
 
+  const openProjectForm = () => {
+    const header = document.querySelector('#headerDiv')
+    header.innerHTML = Forms.project
+  }
+
+  const closeProjectForm = () => {
+    const header = document.querySelector('#headerDiv')
+    header.innerHTML = ''
+  }
+
   return {
     openToDoForm, closeTodoForm, openProjectForm, closeProjectForm
   }
