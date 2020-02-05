@@ -24,56 +24,71 @@ const createProject = () => {
     DomManipulations.showProjectList()
     DomManipulations.displayTodoList()
   })
-};
+}
 
 const creatProjectForm = () => {
-  const projectbtn = document.querySelector('#project-button');
+  const projectbtn = document.querySelector('#project-button')
   projectbtn.addEventListener('click', () => {
-    Mixing.openProjectForm();
-    createProject();
-  });
-};
+    Mixing.openProjectForm()
+    createProject()
+  })
+}
 
 const createTodo = () => {
-  const todoButton = document.querySelector('#addTodoBtn');
+  const todoButton = document.querySelector('#addTodoBtn')
   todoButton.addEventListener('click', (e) => {
-    const project = document.querySelector('#todo-project-input').value;
-    const title = document.querySelector('#todo-title-input').value;
-    const description = document.querySelector('#todo-description-input').value;
-    const dueDate = document.querySelector('#todo-date-input').value;
-    const priority = document.querySelector('#todo-priority-input').value;
-    const status = document.querySelector('#todo-status-input').value;
+    const project = document.querySelector('#todo-project-input').value
+    const title = document.querySelector('#todo-title-input').value
+    const description = document.querySelector('#todo-description-input').value
+    const dueDate = document.querySelector('#todo-date-input').value
+    const priority = document.querySelector('#todo-priority-input').value
+    const status = document.querySelector('#todo-status-input').value
     if (title.length > 5 && description.length > 5 && dueDate.length > 5) {
-      const todoObj = todo(title, description, dueDate, priority, project, status);
-      TodoSaved.addTodo(todoObj);
-      Mixing.closeTodoForm();
+      const todoObj = todo(title, description, dueDate, priority, project, status)
+      TodoSaved.addTodo(todoObj)
+      Mixing.closeTodoForm()
     } else {
-      alert('Todo can\'t be less than 5 leters');
+      alert('Todo can\'t be less than 5 leters')
     }
-    localStorage.setItem('todoItems', JSON.stringify(TodoSaved.todo_array));
-    DomManipulations.displayTodoList();
-    e.preventDefault();
-  });
-};
+    localStorage.setItem('todoItems', JSON.stringify(TodoSaved.todo_array))
+    DomManipulations.displayTodoList()
+    e.preventDefault()
+  })
+}
 
 const deleteProjectItem = () => {
-  const deleteProjectButton = document.querySelector('#delete-project-button');
+  const deleteProjectButton = document.querySelector('#delete-project-button')
   deleteProjectButton.addEventListener('click', () => {
     if (projects[DomManipulations.currentProject] === 'DEFAULT PROJECT') {
-      alert('Cannot delete default project');
+      alert('Cannot delete default project')
     } else {
       if (TodoSaved.todo_array.length !== 0) {
-        const arrToDelete = [];
+        const arrToDelete = []
         TodoSaved.todo_array.forEach((toDoItem) => {
           if (projects[DomManipulations.currentProject] === toDoItem.projectName) {
-            arrToDelete.push(toDoItem);
+            arrToDelete.push(toDoItem)
           }
-        });
-        TodoSaved.todo_array = TodoSaved.todo_array.filter((n) => !arrToDelete.includes(n));
-        localStorage.setItem('todoItems', JSON.stringify(TodoSaved.todo_array));
+        })
+        TodoSaved.todo_array = TodoSaved.todo_array.filter((n) => !arrToDelete.includes(n))
+        localStorage.setItem('todoItems', JSON.stringify(TodoSaved.todo_array))
       }
-      ProjectModule.removeProject(projects[DomManipulations.currentProject]);
+      ProjectModule.removeProject(projects[DomManipulations.currentProject])
     }
-    document.location.reload();
-  });
-};
+    document.location.reload()
+  })
+}
+
+const createTodoForm = () => {
+  const todoButton = document.querySelector('#todo-button')
+  todoButton.addEventListener('click', () => {
+    Mixing.openToDoForm()
+    const todoProjectInput = document.querySelector('#todo-project-input')
+    todoProjectInput.value = projects[DomManipulations.currentProject]
+    createTodo()
+  })
+}
+
+DomManipulations.showProjectList()
+creatProjectForm()
+createTodoForm()
+deleteProjectItem()
