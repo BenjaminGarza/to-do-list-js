@@ -21,4 +21,26 @@ const domManipulations = (() => {
     localStorage.setItem('todoItems', JSON.stringify(TodoSaved.todo_array));
     DomManipulations.displayTodoList();
   };
+
+  const displayTodoList = () => {
+    const tableBody = document.querySelector('#table-body');
+    let content = '';
+    TodoSaved.todo_array.forEach((todoItem, index) => {
+      const {
+        title, description, dueDate, priority, status,
+      } = todoItem;
+      if (projects[DomManipulations.currentProject] === todoItem.projectName) {
+        content += `<tr>
+            <td>${title}</td>
+            <td>${description}</td>
+            <td>${dueDate}</td>
+            <td>${priority}</td>
+            <td>${status}</td>
+            <td><button class="btn-secondary" data-index="${index}" onclick="retrievedEditedInfo(${index})"><i class="fas fa-pencil-alt"></i></button></td>
+            <td><button class="" data-index="${index}" onclick="deletTodoItem(${index})"><i class="fas fa-trash-alt"></i></button></td>
+        </tr>`;
+      }
+    });
+    tableBody.innerHTML = content;
+  };
 })()
