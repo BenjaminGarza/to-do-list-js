@@ -4,6 +4,6 @@ const todo = (title, description, dueDate, priority = 'NOT IMPORTANT', projectNa
   dueDate,
   priority,
   projectName,
-  status
+  status,
 });
 export default todo;

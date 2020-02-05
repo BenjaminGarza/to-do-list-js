@@ -8,13 +8,11 @@
     "ecmaVersion": 2018,
     "sourceType": "module"
   },
-  "extends": ["airbnb"],
+  "extends": ["airbnb-base"],
   "rules": {
     "no-shadow": "off",
     "no-param-reassign": "off",
     "eol-last": "off",
-    "arrow-parens": "off",
-    "comma-dangle": "off",
-    "no-alert": "off"
+    "arrow-parens": "off"
   }
 }

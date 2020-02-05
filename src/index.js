@@ -49,7 +49,7 @@ const createTodo = () => {
       TodoSaved.addTodo(todoObj);
       Mixing.closeTodoForm();
     } else {
-      alert('Todo can\'t be less than 5 leters');
+      alert('Todo can\'t be less than 5 letters');
     }
     localStorage.setItem('todoItems', JSON.stringify(TodoSaved.todo_array));
     DomManipulations.displayTodoList();

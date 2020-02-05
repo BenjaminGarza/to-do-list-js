@@ -36,7 +36,7 @@ const DomManipulations = (() => {
         description,
         dueDate,
         priority,
-        status
+        status,
       } = todoItem;
       if (projects[DomManipulations.currentProject] === todoItem.projectName) {
         content += `<tr>
@@ -133,7 +133,7 @@ const DomManipulations = (() => {
     clickOnProject,
     currentProject,
     displayTodoList,
-    collectTodoEditedInfo
+    collectTodoEditedInfo,
   };
 })();
 

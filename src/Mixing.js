@@ -22,7 +22,7 @@ const Mixing = (() => {
   };
 
   return {
-    openToDoForm, closeTodoForm, openProjectForm, closeProjectForm
+    openToDoForm, closeTodoForm, openProjectForm, closeProjectForm,
   };
 })();
 

@@ -3,7 +3,9 @@
         "browser": true,
         "es6": true
     },
-    "extends": "eslint:recommended",
+    "extends": [
+        "airbnb-base"
+    ],
     "globals": {
         "Atomics": "readonly",
         "SharedArrayBuffer": "readonly"
@@ -13,16 +15,5 @@
         "sourceType": "module"
     },
     "rules": {
-        "no-alert": "off",
-        "quotes": [
-            "error",
-            "single"
-        ],
-        "semi": [
-            "error",
-            "always"
-        ],
-
-        "comma-dangle": "error"
     }
 }
