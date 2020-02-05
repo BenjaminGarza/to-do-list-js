@@ -24,4 +24,12 @@ const createProject = () => {
     DomManipulations.showProjectList()
     DomManipulations.displayTodoList()
   })
-}
+};
+
+const creatProjectForm = () => {
+  const projectbtn = document.querySelector('#project-button');
+  projectbtn.addEventListener('click', () => {
+    Mixing.openProjectForm();
+    createProject();
+  });
+};
