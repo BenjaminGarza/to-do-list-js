@@ -28,7 +28,7 @@ const createProject = () => {
 
 const creatProjectForm = () => {
   const projectbtn = document.querySelector('#project-button');
-  console.log(projectbtn);
+
   projectbtn.addEventListener('click', () => {
     Mixing.openProjectForm();
     createProject();

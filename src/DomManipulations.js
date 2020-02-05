@@ -32,7 +32,11 @@ const DomManipulations = (() => {
     let content = '';
     TodoSaved.todo_array.forEach((todoItem, index) => {
       const {
-        title, description, dueDate, priority, status
+        title,
+        description,
+        dueDate,
+        priority,
+        status
       } = todoItem;
       if (projects[DomManipulations.currentProject] === todoItem.projectName) {
         content += `<tr>

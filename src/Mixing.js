@@ -14,7 +14,6 @@ const Mixing = (() => {
   const openProjectForm = () => {
     const header = document.querySelector('#headerDiv');
     header.innerHTML = Forms.project;
-    console.log(header);
   };
 
   const closeProjectForm = () => {
