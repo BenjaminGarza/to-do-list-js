@@ -1,0 +1,74 @@
+#headerDiv {
+	background: #1591a0;
+	border-bottom: 3px solid grey;
+	height: 50px;
+	width: 102.7%;
+	position: relative;
+	right: 15px;
+
+}
+
+#project-form-div {
+	width: 50%;
+
+}
+
+#projectInputField {
+	width: 90%;
+	
+
+}
+
+#left-side-div{
+	background: #16919f;
+	border-right: 3px solid grey;
+}
+
+#addProject {
+	position: relative;
+	top:20px;
+}
+
+.dropdown-item{
+	width: 300px;
+}
+
+.viewBtn{
+	paddProjecting: 3px;
+	background: #0f5158;
+	cursor: pointer;
+	color: white;
+}
+
+.viewBtn:hover {
+	background: #16919f;
+	border: 2px solid white;
+}
+
+.badge {
+	cursor: pointer;
+}
+
+#todo-form-div {
+	width: 500px;
+	padding: 10px;
+	border: 4px solid #16919f;
+	background: white;
+	margin-bottom: 30px;
+}
+
+#right-side-div {
+	background: #bae9f1;
+}
+
+.project-item {
+	cursor: pointer;
+	font-size: 1.5em;
+	color: white;
+	text-decoration: underline;
+}
+
+.project-item:hover {
+	background: #bae9f1;
+	color: black;
+}

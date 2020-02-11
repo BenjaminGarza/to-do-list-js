@@ -1,0 +1,80 @@
+<!doctype html>
+<html class="no-js" lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+  </head>
+    <body>
+
+      <div class="container">
+
+        <header id="headerDiv"><h1 class="text-white text-center">PROCASTINATION IS A THIEF OF TIME</h1></header>
+              
+
+        <main>
+
+          <div class="row">
+            <div class="col-md-3" id="left-side-div">
+              <div class="buttons">
+                <button id="project-button">New Project</button>
+                <button id="todo-button">New Todo</button>
+              </div>
+              <div id="projectListDiv">
+                
+              </div>
+              
+             
+            </div>
+            <div id="right-side-div" class="col-md-9">
+
+              <div id="delete-project-div" class="d-flex justify-content-between">
+                <h1 id="project-title"></h1>
+                <h2 id="delete-project-button"><i class="fas fa-trash-alt bg-danger"></i></h2>
+              </div>
+
+              <div id="todo-form-div" class="mx-auto">
+                <h3 class="text-dark text-center">Plan, then make it work</h3>
+              </div>
+              <div id="validation-info" class="text-center text-danger h3"></div>
+
+              <div id="project-list-div">
+                
+              </div>
+
+              <div id="todo-display-div"></div>
+
+              <table class="table">
+                <thead class="thead-defaultinverse">
+                  <tr>
+                    <th>Title</th>
+                    <th>Description</th>
+                    <th>DueDate</th>
+                    <th>Proitity</th>
+                    <th>Status</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                  </tr>
+                </thead>
+                <tbody id="table-body">
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+        </main>
+      </div>
+
+
+
+    	
+       
+       
+      <script src="main.js"></script>
+       
+    </body>
+</html>
