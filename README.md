@@ -13,6 +13,8 @@ To run
 
 Enjoy!
 
+## Photo
+<img src="https://res.cloudinary.com/it-s-tech/image/upload/v1585156732/Screenshot_from_2020-03-25_18-13-36_mfmb7n.png">
 
 **Technology Used**
 * Javascript
