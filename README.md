@@ -1,30 +1,25 @@
 # to-do-list-js
-Javascript to-do-list in the browser
+A todo list application built using javascript. It provides facilities such as creating projects and corresponding todo items. Todo items can be edited and deleted.
 
-To run  
-        Clone the repo
-        Open index.html (file located in the dist folder) with a web browser
-        Enter optional project, or create a task in the default project
-        Fill out the form and submit
-        When there are multiple projects click on the desired project to select it
-        Press the trashcan icon if you would like to delete a project or todo
-        if you would like to edit a project, just click the pencil icon
-
-
-Enjoy!
-
-### [Live demo](https://clever-leavitt-20fbe8.netlify.com/)
-
-## Photo
-<img src="https://res.cloudinary.com/it-s-tech/image/upload/v1585156732/Screenshot_from_2020-03-25_18-13-36_mfmb7n.png">
-
-**Technology Used**
+### Technologies Used
 * Javascript
 * HTML
 * CSS
 * Eslint
 * Webpack
 
-**Authors**
-### [Nyaga Roy](https://github.com/RoyNyaga).
-### [Benji](https://github.com/BenjaminGarza).
+## Intallation
+
+* Clone the repository using the command git@github.com:BenjaminGarza/to-do-list-js.git.
+* Open the repository in your terminal and Install packages using the command npm install.
+* Build your code on development using the command npm run start which will set the application to a watch mode as well.
+
+### [Live demo](https://clever-leavitt-20fbe8.netlify.com/)
+
+## Photo
+<img src="https://res.cloudinary.com/it-s-tech/image/upload/v1585156732/Screenshot_from_2020-03-25_18-13-36_mfmb7n.png">
+
+
+## Authors
+* [Nyaga Roy](https://github.com/RoyNyaga).
+* [Benji](https://github.com/BenjaminGarza).
