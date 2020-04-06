@@ -16,7 +16,7 @@ Click [here](https://clever-leavitt-20fbe8.netlify.com/) to see a live version.
 * Eslint
 * Webpack
 
-### Intallation And Usage
+### Installation And Usage
 
 * Clone the repository using the command:
 ```
