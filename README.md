@@ -49,7 +49,7 @@ npm run start
 * Email: [nyagaandreroy@gmail.com](mailto:nyagaandreroy@gmail.com)
 * Linkedin: [Roy Nyaga](https://www.linkedin.com/in/roy-nyaga-andre/)
 
-:bust_in_silhouette: [Nyaga Andre Roy](https://github.com/BenjaminGarza)
+:bust_in_silhouette: [Benhi Garza](https://github.com/BenjaminGarza)
 * Gihub: [Benhi Garza](https://github.com/BenjaminGarza)
 * Email: [BenhiGarza@gmail.com](mailto:benjisgarza@gmail.com)
-* Linkedin: [Roy Nyaga](https://www.linkedin.com/in/benjamin-garza/)
+* Linkedin: [benjamin](https://www.linkedin.com/in/benjamin-garza/)
