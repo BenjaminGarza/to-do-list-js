@@ -43,7 +43,7 @@ npm run start
 * After the site has been deployed, click on the green link that appears on the top of your dashboard to access your app.
 
 
-### Author
+### Authors
 :bust_in_silhouette: [Nyaga Andre Roy](https://github.com/RoyNyaga)
 * Gihub: [RoyNyaga](https://github.com/RoyNyaga)
 * Email: [nyagaandreroy@gmail.com](mailto:nyagaandreroy@gmail.com)
