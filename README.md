@@ -42,6 +42,9 @@ npm run start
 * Click on "deploy site" and wait for about 10 to 15  minutes.
 * After the site has been deployed, click on the green link that appears on the top of your dashboard to access your app.
 
+### Future Features
+* User registration.
+* Notifications to remind users of the time they set for a todo.
 
 ### Authors
 :bust_in_silhouette: [Nyaga Andre Roy](https://github.com/RoyNyaga)
